@@ -1,0 +1,32 @@
+
+
+.searchBar{
+  display: none;
+  form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  input{
+    background-color: transparent;
+    border: 3px solid #04192d;
+    height: 36px;
+    width: 18rem;
+    border-radius: 4px 0px 0px 4px;
+    border-right: none;
+    padding: 8px;
+    &:focus{
+      border: none;
+      background-color: transparent;
+    }
+  }
+  button{
+    border: 3px solid #04192d;
+    border-radius: 0px 4px 4px 0px;
+    padding: 4px;
+    background-color: transparent;
+    img{
+      width: 23px;
+    }
+  }
+}

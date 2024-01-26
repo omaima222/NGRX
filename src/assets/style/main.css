@@ -1,0 +1,526 @@
+@import url("https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+.container {
+  width: 60vw;
+  border-radius: 2px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.sideBar {
+  background-color: #04192d;
+  width: 15vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.userSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  margin-top: 3rem;
+}
+.userSide .pfp {
+  width: 65px;
+  height: 65px;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: #F56038;
+}
+.userSide h3 {
+  color: #F56038;
+  font-size: 17px;
+  font-weight: 400;
+}
+.userSide .username {
+  padding: 10px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.menu button {
+  font-family: "Nova Mono", monospace;
+  color: #DAC0A3;
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 25%;
+  transition: 0.5s;
+}
+.menu button:hover {
+  background-color: #021626;
+  color: #f7bc25;
+}
+.menu button a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hover {
+  background-color: #021626 !important;
+  color: #f7bc25 !important;
+}
+
+.searchBar {
+  display: none;
+}
+.searchBar form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.searchBar input {
+  background-color: transparent;
+  border: 3px solid #04192d;
+  height: 36px;
+  width: 18rem;
+  border-radius: 4px 0px 0px 4px;
+  border-right: none;
+  padding: 8px;
+}
+.searchBar input:focus {
+  border: none;
+  background-color: transparent;
+}
+.searchBar button {
+  border: 3px solid #04192d;
+  border-radius: 0px 4px 4px 0px;
+  padding: 4px;
+  background-color: transparent;
+}
+.searchBar button img {
+  width: 23px;
+}
+
+table {
+  width: 100%;
+  background-color: #F8F0E5;
+  border-collapse: collapse;
+  border-radius: 7px;
+  overflow: hidden;
+}
+table .tableHead {
+  background-color: #04192d;
+  border-radius: 0px 0px 5px 5px;
+}
+table tr {
+  border-bottom: 3px solid #DAC0A3;
+}
+table th {
+  font-size: 1.5rem;
+  color: #F56038;
+  font-family: "Nova Mono", monospace;
+  font-weight: 400;
+}
+table th, table td {
+  border: none;
+  padding: 15px;
+  text-align: left;
+}
+table button {
+  padding: 8px;
+  background-color: #F56038;
+  color: #F8F0E5;
+  border-radius: 3px;
+  border: none;
+  width: 11rem;
+  font-weight: 100;
+  float: inline-end;
+  margin-left: -10rem;
+}
+
+.bar {
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.bar button {
+  margin-left: 2rem;
+  background: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  transition: 0.5s;
+  border: 3px solid transparent;
+  font-weight: 300;
+}
+.bar button:hover {
+  border-bottom: 3px solid black;
+}
+.bar button a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.auth-body {
+  background-color: #04192d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.container .content {
+  display: flex;
+  width: 60vw;
+  height: 70vh;
+  border-radius: 2px;
+}
+.container .page-title {
+  color: #DAC0A3;
+  font-family: "Nova Mono", monospace;
+  font-size: 18px;
+  font-weight: 400;
+  align-self: flex-end;
+  padding: 5px;
+  padding-right: 20px;
+}
+.container .app-name {
+  color: #F56038;
+  font-family: "Nova Mono", monospace;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 5px;
+  padding-left: 20px;
+}
+
+.motto-container {
+  border-radius: 2px 0 0 2px;
+  width: 50%;
+  background-color: #F56038;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.motto-container h1 {
+  color: #04192d;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.form-container {
+  border-radius: 0 2px 2px 0;
+  width: 50%;
+  background-color: #DAC0A3;
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+}
+.form-container div {
+  display: flex;
+}
+.form-container div h1 {
+  font-size: 15px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  color: #04192d;
+}
+.form-container div .signupButton {
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+  font-family: "Nunito", sans-serif;
+  margin-left: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #04192d;
+}
+.form-container div .signupButton:hover {
+  color: #F56038;
+}
+.form-container .actionForm {
+  margin-top: 5rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+.form-container .actionForm input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #041C32;
+  margin-bottom: 6rem;
+  padding: 5px;
+  font-size: 1rem;
+}
+.form-container .actionForm .error {
+  color: #cf1920;
+  font-size: 1rem;
+  padding: 5px;
+  position: absolute;
+  margin-top: 10rem;
+}
+.form-container .actionForm button {
+  width: 100%;
+  background-color: #04192d;
+  border-radius: 2px;
+  border: 2px solid transparent;
+  color: #f7bc25;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.form-container .actionForm button:hover {
+  background-color: #f7bc25;
+  color: #04192d;
+  border: 2px solid #04192d;
+}
+
+.signup {
+  justify-content: center;
+}
+.signup form {
+  margin: 0;
+}
+
+.dashBody {
+  background-color: #DAC0A3;
+  display: flex;
+}
+
+.dashContent {
+  width: 76vw;
+  height: 95vh;
+  padding: 1rem 3rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.dashContent .content-wrap {
+  margin-top: -2rem;
+}
+.dashContent .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashContent .header h1 {
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-size: 2.5rem;
+  color: #04192d;
+}
+.dashContent .header .addTask {
+  width: 50px;
+  font-size: 40px;
+  background-color: #04192d;
+  border-radius: 6px;
+  color: #F56038;
+}
+.dashContent .content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+.tasks .title {
+  width: 100%;
+  height: 2rem;
+  background-color: #04192d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 6px 6px 0px 0px;
+}
+.tasks .title h1 {
+  font-size: 1.5rem;
+  color: #F56038;
+  font-family: "Nova Mono", monospace;
+  font-weight: 400;
+}
+.tasks .task {
+  width: 100%;
+  height: 7rem;
+  background-color: #F8F0E5;
+  margin-top: 4px;
+  padding: 10px;
+  word-wrap: break-word;
+  position: relative;
+}
+.tasks .task h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.tasks .task p {
+  font-size: 15px;
+  color: #767171;
+}
+.tasks .task .priority {
+  border-radius: 5px;
+  padding: 5px;
+  float: right;
+  color: #f7bc25;
+  background-color: #04192d;
+  width: 65px;
+  text-align: center;
+  position: absolute;
+  top: 70%;
+  right: 2%;
+}
+.tasks .task .taskActions {
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  float: left;
+  position: absolute;
+  width: 75px;
+  top: 68%;
+  left: 2%;
+}
+.tasks .task .taskActions button {
+  border: solid 2px #04192d;
+  border-radius: 50%;
+  padding: 5px;
+}
+.tasks .task .taskActions button img {
+  width: 20px;
+}
+.tasks .task:last-of-type {
+  border-radius: 0px 0px 6px 6px;
+}
+
+.taskForm {
+  background-color: #F8F0E5;
+  width: 50rem;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 6px;
+}
+.taskForm form {
+  width: 90%;
+  height: 90%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.taskForm .pInput {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem;
+}
+.taskForm .pInput label {
+  font-size: 20px;
+  color: #04192d;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+.taskForm .pInput input, .taskForm .pInput textarea, .taskForm .pInput select {
+  padding: 8px;
+  width: 80%;
+  background: transparent;
+  border: 2px solid #04192d;
+  font-size: 1rem;
+}
+.taskForm .pInput select {
+  width: 82%;
+}
+.taskForm button {
+  padding: 12px;
+  width: 30%;
+  border: none;
+  background-color: #F56038;
+  font-size: 1rem;
+  color: #F8F0E5;
+  align-self: end;
+}
+
+.profileBody {
+  background-color: #DAC0A3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.profileBody .bar {
+  width: 100%;
+}
+
+.profile {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #04192d;
+  border-radius: 5px;
+  width: 60%;
+  height: 80%;
+}
+
+.side1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.side1 .pfp {
+  width: 120px;
+  height: 120px;
+  background-color: #F56038;
+  border-radius: 50%;
+  margin-top: -10rem;
+}
+.side1 button {
+  border: none;
+  color: #F56038;
+  padding: 10px;
+  width: 150px;
+  border-radius: 2px;
+  margin-top: 7rem;
+  font-size: 1rem;
+  transition: 0.5s;
+  background-color: transparent;
+}
+.side1 button:hover {
+  background: #F56038;
+  color: #F8F0E5;
+}
+
+.side2 {
+  background-color: #F8F0E5;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  height: 85%;
+  align-items: center;
+}
+
+/*# sourceMappingURL=main.css.map */

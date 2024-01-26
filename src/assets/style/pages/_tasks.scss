@@ -1,0 +1,124 @@
+
+.tasks{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  .title{
+    width: 100%;
+    height: 2rem;
+    background-color: $blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 6px 6px 0px 0px;
+    h1{
+      font-size: 1.5rem;
+      color: $orange;
+      font-family: "Nova Mono", monospace;
+      font-weight: 400;
+    }
+  }
+  .task{
+    width: 100%;
+    height: 7rem;
+    background-color: #F8F0E5;
+    margin-top: 4px;
+    padding: 10px;
+    word-wrap: break-word;
+    position: relative;
+    h2{
+      font-size: 20px;
+      font-weight: 500;
+    }
+    p{
+      font-size: 15px;
+      color: #767171;
+    }
+    .priority{
+      border-radius: 5px;
+      padding: 5px;
+      float: right;
+      color: #f7bc25;
+      background-color: #04192d;
+      width: 65px;
+      text-align: center;
+      position: absolute;
+      top: 70%;
+      right: 2%;
+    }
+    .taskActions{
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      float: left;
+      position: absolute;
+      width: 75px;
+      top: 68%;
+      left: 2%;
+      button{
+        img{
+          width:20px;
+        }
+        border: solid 2px #04192d;
+        border-radius: 50%;
+        padding: 5px;
+      }
+    }
+  }
+  .task:last-of-type{
+    border-radius: 0px 0px 6px 6px;
+  }
+}
+
+.taskForm{
+  background-color: $white;
+  width: 50rem;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 6px;
+  form{
+    width: 90%;
+    height: 90%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .pInput{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem;
+    label{
+      font-size: 20px;
+      color: $blue;
+      margin-right: 10px;
+      border-radius: 3px;
+    }
+    input, textarea, select{
+      padding: 8px;
+      width: 80%;
+      background: transparent;
+      border: 2px solid $blue;
+      font-size: 1rem;
+    }
+    select{
+      width: 82%;
+    }
+  }
+  button{
+    padding: 12px;
+    width: 30%;
+    border: none;
+    background-color: $orange;
+    font-size: 1rem;
+    color: $white;
+    align-self: end;
+  }
+}

@@ -1,0 +1,130 @@
+
+
+
+.auth-body {
+  background-color: $blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  .content {
+    display: flex;
+    width: 60vw;
+    height: 70vh;
+    border-radius: 2px;
+  }
+
+  .page-title{
+    color: $beige;
+    font-family: $title-font;
+    font-size: 18px;
+    font-weight: 400;
+    align-self: flex-end;
+    padding: 5px;
+    padding-right: 20px;
+  }
+
+  .app-name{
+    color: $orange;
+    font-family: $title-font;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 5px;
+    padding-left: 20px;
+  }
+}
+
+
+
+.motto-container{
+  border-radius: 2px 0 0 2px ;
+  width: 50%;
+  background-color: $orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1{
+    color: $blue;
+    text-align: center;
+    font-size: 3rem;
+  }
+}
+
+.form-container{
+  border-radius: 0 2px 2px 0;
+  width: 50%;
+  background-color: $beige;
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  div{
+    display: flex;
+    h1{
+      font-size: 15px;
+      font-family: $text-font;
+      font-weight: 300;
+      color: $blue;
+    }
+    .signupButton{
+      background-color: transparent;
+      border: none;
+      font-size: 15px;
+      font-family: $text-font;
+      margin-left: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      color: $blue;
+      &:hover{
+        color: $orange;
+      }
+    }
+  }
+  .actionForm{
+    margin-top: 5rem;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    input{
+      background-color: transparent;
+      outline: none;
+      border: none;
+      border-bottom: 3px solid #041C32;
+      margin-bottom: 6rem;
+      padding: 5px;
+      font-size: 1rem;
+    }
+    .error{
+      color: #cf1920;
+      font-size: 1rem;
+      padding: 5px;
+      position: absolute;
+      margin-top: 10rem;
+    }
+    button{
+      width: 100%;
+      background-color: $blue;
+      border-radius: 2px;
+      border: 2px solid transparent;
+      color: $yellow;
+      padding: 10px;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover{
+        background-color: $yellow;
+        color: $blue;
+        border: 2px solid $blue;
+      }
+    }
+  }
+}
+
+.signup {
+  justify-content: center;
+  form {
+    margin: 0;
+  }
+}

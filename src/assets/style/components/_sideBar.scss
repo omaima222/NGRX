@@ -1,0 +1,64 @@
+
+
+
+.sideBar{
+    background-color: $blue;
+    width: 15vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.userSide{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    margin-top: 3rem;
+    .pfp{
+        width: 65px;
+        height: 65px;
+        padding: 5px;
+        border-radius: 50%;
+        background-color: $orange;
+    }
+    h3{
+        color: #F56038;
+        font-size: 17px;
+        font-weight: 400;
+    }
+    .username{
+        padding: 10px;
+    }
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    button{
+        font-family: $title-font;
+        color: $beige;
+        font-size: 1rem;
+        background-color: transparent;
+        border: none;
+        width: 100%;
+        height: 25%;
+        transition: 0.5s;
+        &:hover{
+            background-color: #021626;
+            color: $yellow;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+    }
+}
+.hover{
+    background-color: #021626!important;
+    color: $yellow!important;
+}

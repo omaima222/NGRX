@@ -1,0 +1,40 @@
+
+.dashBody{
+  background-color: $beige;
+  display: flex;
+}
+
+.dashContent{
+  width: 76vw;
+  height: 95vh;
+  padding: 1rem 3rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  .content-wrap{
+    margin-top: -2rem;
+  }
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1{
+      margin-bottom: 1rem;
+      font-weight: 400;
+      font-size: 2.5rem;
+      color: $blue;
+    }
+    .addTask{
+      width: 50px;
+      font-size: 40px;
+      background-color: $blue;
+      border-radius: 6px;
+      color: $orange;
+    }
+  }
+  .content{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}

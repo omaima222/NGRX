@@ -1,0 +1,94 @@
+<div class="header">
+  <h1 id="headerTitle">My tasks</h1>
+  <button title="add" class="addTask" (click)="toggleAddTaskForm()">+</button>
+</div>
+<div class="content">
+  <div class="taskForm" *ngIf="showTaskForm">
+    <form method="post">
+      <div class="pInput">
+        <label>Name</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="pInput">
+        <label>Description</label>
+        <textarea name="description" required></textarea>
+      </div>
+      <div class="pInput">
+        <label>Tags</label>
+        <input type="text" name="tags" required>
+      </div>
+      <div class="pInput">
+        <label>Debut date</label>
+        <input type="date" name="debutDate"  required>
+      </div>
+      <div class="pInput">
+        <label>Deadline</label>
+        <input type="date" name="deadline"  required>
+      </div>
+      <div class="pInput">
+        <label>Priority</label>
+        <select name="priority" required>
+          <option value="" disabled selected hidden>Select priority</option>
+          <option value="LOW">low</option>
+          <option value="MEDIUM">medium</option>
+          <option value="MAJOR">major</option>
+        </select>
+      </div>
+      <button type="submit">ADD</button>
+    </form>
+  </div>
+  <div *ngIf="!showTaskForm"
+       style="display: flex; justify-content: space-between; align-items: flex-start;width: 100%;">
+    <div class="tasks" *ngIf="tasksToDo$ | async as tasksTodo">
+      <div class="title">
+        <h1>TO DO</h1>
+      </div>
+      <div class="task" *ngFor="let task of tasksTodo">
+        <h2>{{ task.name }}</h2>
+        <p>{{ task.description }}</p>
+        <div class="priority">{{ task.priority.toLowerCase() }}</div>
+        <div class="taskActions">
+          <button title="delete" class="deleteTask" (click)="deleteTask(task)" ><img src="../../../assets/style/images/delete.png"></button>
+          <button title="edit" class="updateTask"><img src="../../../assets/style/images/edit.png"></button>
+        </div>
+      </div>
+      <div class="task" *ngIf="tasksTodo.length==0">
+        <h2 style="color: gray; text-align: center">** no tasks **</h2>
+      </div>
+    </div>
+    <div class="tasks" *ngIf="tasksInProgress$ | async as tasksInProgress">
+      <div class="title">
+        <h1>IN PROGRESS</h1>
+      </div>
+      <div class="task" *ngFor="let task of tasksInProgress">
+        <h2>{{ task.name }}</h2>
+        <p>{{ task.description }}</p>
+        <div class="priority">{{ task.priority.toLowerCase() }}</div>
+        <div class="taskActions">
+          <button title="delete" class="deleteTask" (click)="deleteTask(task)" ><img src="../../../assets/style/images/delete.png"></button>
+          <button title="edit" class="updateTask"><img src="../../../assets/style/images/edit.png"></button>
+        </div>
+      </div>
+      <div class="task" *ngIf="tasksInProgress.length==0">
+        <h2 style="color: gray; text-align: center">** no tasks **</h2>
+      </div>
+    </div>
+    <div class="tasks" *ngIf="tasksDone$ | async as tasksDone">
+      <div class="title">
+        <h1>DONE</h1>
+      </div>
+      <div class="task" *ngFor="let task of tasksDone">
+        <h2>{{ task.name }}</h2>
+        <p>{{ task.description}}</p>
+        <div class="priority">{{ task.priority.toLowerCase() }}</div>
+        <div class="taskActions">
+          <button title="delete" class="deleteTask" (click)="deleteTask(task)" ><img src="../../../assets/style/images/delete.png"></button>
+          <button title="edit" class="updateTask"><img src="../../../assets/style/images/edit.png"></button>
+        </div>
+      </div>
+      <div class="task" *ngIf="tasksDone.length==0">
+        <h2 style="color: gray; text-align: center">** no tasks **</h2>
+      </div>
+    </div>
+  </div>
+</div>
