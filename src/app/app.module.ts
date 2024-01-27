@@ -11,6 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 import {HttpClientModule, provideHttpClient, withFetch} from "@angular/common/http";
 import {taskReducer} from "./store/task/task.reducer";
 import {TaskEffects} from "./store/task/task.effect";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {TaskEffects} from "./store/task/task.effect";
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot({tasks: taskReducer}),

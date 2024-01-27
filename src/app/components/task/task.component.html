@@ -1,37 +1,47 @@
 <div class="header">
   <h1 id="headerTitle">My tasks</h1>
-  <button title="add" class="addTask" (click)="toggleAddTaskForm()">+</button>
+  <button title="add" class="addTask" (click)="toggleAddTaskForm(null)">{{ showTaskForm ? 'ⓧ' : '+' }}</button>
 </div>
 <div class="content">
   <div class="taskForm" *ngIf="showTaskForm">
-    <form method="post">
+    <form (ngSubmit)="onSubmit()" [formGroup]="taskForm">
+      <input formControlName="id"  hidden>
       <div class="pInput">
         <label>Name</label>
-        <input type="text" name="name" required>
+        <input type="text" formControlName="name" required>
       </div>
       <div class="pInput">
         <label>Description</label>
-        <textarea name="description" required></textarea>
+        <textarea formControlName="description"  required></textarea>
       </div>
       <div class="pInput">
         <label>Tags</label>
-        <input type="text" name="tags" required>
+        <input type="text" formControlName="tags" required>
       </div>
       <div class="pInput">
         <label>Debut date</label>
-        <input type="date" name="debutDate"  required>
+        <input type="date" formControlName="debutDate"  required>
       </div>
       <div class="pInput">
         <label>Deadline</label>
-        <input type="date" name="deadline"  required>
+        <input type="date" formControlName="deadline" required>
       </div>
       <div class="pInput">
         <label>Priority</label>
-        <select name="priority" required>
+        <select formControlName="priority" required>
           <option value="" disabled selected hidden>Select priority</option>
           <option value="LOW">low</option>
           <option value="MEDIUM">medium</option>
           <option value="MAJOR">major</option>
+        </select>
+      </div>
+      <div class="pInput">
+        <label>Status</label>
+        <select formControlName="status" required>
+          <option value="" disabled selected hidden>Select status</option>
+          <option value="TODO">to do</option>
+          <option value="INPROGRESS">in progress</option>
+          <option value="DONE">done</option>
         </select>
       </div>
       <button type="submit">ADD</button>
@@ -49,7 +59,7 @@
         <div class="priority">{{ task.priority.toLowerCase() }}</div>
         <div class="taskActions">
           <button title="delete" class="deleteTask" (click)="deleteTask(task)" ><img src="../../../assets/style/images/delete.png"></button>
-          <button title="edit" class="updateTask"><img src="../../../assets/style/images/edit.png"></button>
+          <button title="edit" class="updateTask" (click)="toggleAddTaskForm(task)"><img src="../../../assets/style/images/edit.png"></button>
         </div>
       </div>
       <div class="task" *ngIf="tasksTodo.length==0">
@@ -66,7 +76,7 @@
         <div class="priority">{{ task.priority.toLowerCase() }}</div>
         <div class="taskActions">
           <button title="delete" class="deleteTask" (click)="deleteTask(task)" ><img src="../../../assets/style/images/delete.png"></button>
-          <button title="edit" class="updateTask"><img src="../../../assets/style/images/edit.png"></button>
+          <button title="edit" class="updateTask" (click)="toggleAddTaskForm(task)"><img src="../../../assets/style/images/edit.png"></button>
         </div>
       </div>
       <div class="task" *ngIf="tasksInProgress.length==0">
@@ -83,7 +93,7 @@
         <div class="priority">{{ task.priority.toLowerCase() }}</div>
         <div class="taskActions">
           <button title="delete" class="deleteTask" (click)="deleteTask(task)" ><img src="../../../assets/style/images/delete.png"></button>
-          <button title="edit" class="updateTask"><img src="../../../assets/style/images/edit.png"></button>
+          <button title="edit" class="updateTask" (click)="toggleAddTaskForm(task)"><img src="../../../assets/style/images/edit.png"></button>
         </div>
       </div>
       <div class="task" *ngIf="tasksDone.length==0">

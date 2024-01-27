@@ -9,5 +9,7 @@ export interface Task{
   createdBy: User;
   assignedTo: User;
   priority: string;
+  debutDate: string;
+  deadline: string;
   status: string;
 }
