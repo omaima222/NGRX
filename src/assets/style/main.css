@@ -450,7 +450,14 @@ table button {
   font-size: 1rem;
 }
 .taskForm .pInput select {
-  width: 82%;
+  width: 82.5%;
+}
+.taskForm .error-message {
+  margin: -1rem;
+  margin-left: -236px;
+  color: red;
+  background-color: bisque;
+  padding: 6px;
 }
 .taskForm button {
   padding: 12px;

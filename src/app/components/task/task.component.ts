@@ -4,7 +4,7 @@ import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {Task} from "../../models/task";
 import * as TaskActions from '../../store/task/task.action';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {TaskRequestDto} from '../../dtos/taskRequestDto'
 
 
@@ -22,13 +22,15 @@ export class TaskComponent {
   error: Observable<any>;
   showTaskForm: boolean = false;
   taskForm: FormGroup;
+  submitted = false;
 
   toggleAddTaskForm(task: Task | null): void {
+    this.submitted = false;
     this.taskForm.patchValue({
       id: task?.id,
       name: task?.name || '',
       description: task?.description || '',
-      tags: (task?.tags.map(t => t.name) || []).join('#'),
+      tags: (task?.tags.map(t => t.name) || []).join(' '),
       debutDate: task?.debutDate || '',
       deadline: task?.deadline || '',
       priority: task?.priority || '',
@@ -45,14 +47,35 @@ export class TaskComponent {
     this.tasksToDo$ = this.store.select(TaskSelectors.selectTasksByStatus("TODO"))
     this.taskForm = this.fb.group({
       id: [null],
-      name: ['', Validators.required],
-      description: ['', Validators.required],
-      tags: ['', Validators.required],
-      debutDate: ['', Validators.required],
-      deadline: ['', Validators.required],
-      priority: ['', Validators.required],
-      status: ['', Validators.required],
+      name: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      tags: ['', [Validators.required, this.tagsValidator]],
+      debutDate: ['', [Validators.required, this.debutDateValidator]],
+      deadline: ['', [Validators.required]],
+      priority: ['', [Validators.required]],
+      status: ['', [Validators.required]],
     });
+  }
+
+  debutDateValidator(control: AbstractControl): ValidationErrors | null {
+    const selectedDate = new Date(control.value);
+    const now = new Date();
+    const threeDaysFromNow = new Date(now);
+    threeDaysFromNow.setDate(threeDaysFromNow.getDate() + 3);
+    if (selectedDate && (selectedDate < now || selectedDate > threeDaysFromNow)) {
+      return { debutDateError: true };
+    }
+    return null;
+  }
+
+  tagsValidator(control: AbstractControl): ValidationErrors | null {
+    console.log("tags:", control.value)
+    const tags = control.value.split(" ").filter((tag: string) => tag !== '')
+    console.log(tags)
+    if(tags.length<2){
+      return { tagsLengthError : true }
+    }
+    return null;
   }
 
   ngOnInit(): void {
@@ -66,12 +89,13 @@ export class TaskComponent {
   }
 
   onSubmit() {
+      this.submitted = true;
       if(this.taskForm.valid){
         const taskData: TaskRequestDto = {
           id: this.taskForm.value.id,
           name: this.taskForm.value.name,
           description: this.taskForm.value.description,
-          tags: this.taskForm.value.tags.split('#'),
+          tags: this.taskForm.value.tags.split(' ').filter((tag: string) => tag !== ''),
           created_by_id: 1,
           status: this.taskForm.value.status,
           priority: this.taskForm.value.priority,

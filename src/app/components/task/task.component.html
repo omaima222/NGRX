@@ -10,21 +10,42 @@
         <label>Name</label>
         <input type="text" formControlName="name" required>
       </div>
+      <div *ngIf="taskForm?.get('name')?.hasError('required') && submitted">
+        <div class="error-message">⛔ Name is required !</div>
+      </div>
       <div class="pInput">
         <label>Description</label>
         <textarea formControlName="description"  required></textarea>
       </div>
+      <div *ngIf="taskForm?.get('description')?.hasError('required') && submitted">
+        <div class="error-message">⛔ Description is required !</div>
+      </div>
       <div class="pInput">
         <label>Tags</label>
-        <input type="text" formControlName="tags" required>
+        <input type="text" formControlName="tags" placeholder="Tags separated by space" required>
+      </div>
+      <div *ngIf="taskForm?.get('tags')?.hasError('required') && submitted">
+        <div class="error-message">⛔ Tags are required !</div>
+      </div>
+      <div *ngIf="taskForm?.get('tags')?.hasError('tagsLengthError') && submitted">
+        <div class="error-message">⛔ Tags must be at least 2 separated by a space !</div>
       </div>
       <div class="pInput">
         <label>Debut date</label>
         <input type="date" formControlName="debutDate"  required>
       </div>
+      <div *ngIf="taskForm?.get('debutDate')?.hasError('required') && submitted">
+        <div class="error-message">⛔ Debut date is required !</div>
+      </div>
+      <div *ngIf="taskForm?.get('debutDate')?.hasError('debutDateError') && submitted">
+        <div class="error-message">⛔ Debut date can only be three days from now !</div>
+      </div>
       <div class="pInput">
         <label>Deadline</label>
         <input type="date" formControlName="deadline" required>
+      </div>
+      <div *ngIf="taskForm?.get('deadline')?.hasError('required') && submitted">
+        <div class="error-message">⛔ Deadline is required !</div>
       </div>
       <div class="pInput">
         <label>Priority</label>
@@ -35,6 +56,9 @@
           <option value="MAJOR">major</option>
         </select>
       </div>
+      <div *ngIf="taskForm?.get('priority')?.hasError('required') && submitted">
+        <div class="error-message">⛔ Priority is required !</div>
+      </div>
       <div class="pInput">
         <label>Status</label>
         <select formControlName="status" required>
@@ -43,6 +67,9 @@
           <option value="INPROGRESS">in progress</option>
           <option value="DONE">done</option>
         </select>
+      </div>
+      <div *ngIf="taskForm?.get('status')?.hasError('required') && submitted">
+        <div class="error-message">⛔ Status is required !</div>
       </div>
       <button type="submit">ADD</button>
     </form>

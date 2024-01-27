@@ -109,9 +109,17 @@
       font-size: 1rem;
     }
     select{
-      width: 82%;
+      width: 82.5%;
     }
   }
+  .error-message{
+    margin: -1rem;
+    margin-left: -236px;
+    color: red;
+    background-color: bisque;
+    padding: 6px;
+  }
+
   button{
     padding: 12px;
     width: 30%;
