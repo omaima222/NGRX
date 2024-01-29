@@ -47,6 +47,9 @@
       <div *ngIf="taskForm?.get('deadline')?.hasError('required') && submitted">
         <div class="error-message">⛔ Deadline is required !</div>
       </div>
+      <div *ngIf="taskForm?.get('deadline')?.hasError('deadlineError') && submitted">
+        <div class="error-message">⛔ Deadline must be after debut date !</div>
+      </div>
       <div class="pInput">
         <label>Priority</label>
         <select formControlName="priority" required>
