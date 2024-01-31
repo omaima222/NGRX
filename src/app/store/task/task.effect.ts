@@ -4,6 +4,8 @@ import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import * as TaskActions from './task.action';
 import { TaskService } from '../../services/task.service';
+import {Tag} from "../../models/tag";
+import {User} from "../../models/user";
 
 @Injectable()
 export class TaskEffects {
@@ -24,7 +26,7 @@ export class TaskEffects {
     mergeMap(({ taskId }) => this.taskService.delete(taskId, 1)
       .pipe(
         map(() => TaskActions.deleteTaskSuccess({ taskId })),
-        catchError(error => of(TaskActions.deleteTaskFailure({ error })))
+        catchError(error => of(TaskActions.deleteTaskFailure({ error: "Task deletion has failed !" })))
       )
     )
   ));

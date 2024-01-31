@@ -85,7 +85,6 @@ export class TaskComponent {
   tagsValidator(control: AbstractControl): ValidationErrors | null {
     if(control.value!=null){
       const tags = control.value.split(" ").filter((tag: string) => tag !== '')
-      console.log(tags)
       if(tags.length<2){
         return { tagsLengthError : true }
       }
@@ -96,6 +95,7 @@ export class TaskComponent {
   ngOnInit(): void {
     this.store.dispatch(TaskActions.loadTasks());
   }
+
 
   deleteTask(task: Task): void {
     if (task) {
